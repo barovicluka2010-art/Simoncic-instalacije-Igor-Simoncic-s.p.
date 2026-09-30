@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simončič instalacije Igor Simončič s.p.</title>
+  <meta name="description" content="Simončič instalacije – klimatizacija, elektroinštalacije, toplotne črpalke, servis in vzdrževanje.">
+  <style>
+    :root{
+      --dark:#0b1220;
+      --dark2:#111c2e;
+      --accent:#ff7a00;
+      --accent2:#ff9b3d;
+      --light:#f5f7fa;
+      --white:#fff;
+      --text:#172033;
+      --muted:#667085;
+      --border:#e5e7eb;
+      --shadow:0 15px 40px rgba(11,18,32,.10);
+      --radius:18px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--white);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(11,18,32,.96);backdrop-filter:blur(10px);
+      box-shadow:0 4px 20px rgba(0,0,0,.15)
+    }
+    nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{display:flex;align-items:center;gap:12px;color:white;font-weight:800}
+    .logo-mark{
+      width:42px;height:42px;border-radius:12px;background:var(--accent);
+      display:grid;place-items:center;font-size:20px;color:white
+    }
+    .logo small{display:block;color:#aeb8c7;font-weight:500;font-size:11px;margin-top:-3px}
+    .nav-links{display:flex;align-items:center;gap:8px;list-style:none}
+    .nav-links a{color:#e9edf4;padding:10px 13px;border-radius:10px;font-size:14px;font-weight:700}
+    .nav-links a:hover{background:#1b2a40;color:white}
+    .nav-cta{background:var(--accent)!important;color:white!important}
+    .menu-btn{display:none;background:none;border:0;color:white;font-size:28px;cursor:pointer}
+
+    .hero{
+      min-height:690px;display:flex;align-items:center;
+      background:
+        linear-gradient(90deg,rgba(7,14,25,.94) 0%,rgba(7,14,25,.75) 48%,rgba(7,14,25,.35) 100%),
+        radial-gradient(circle at 75% 25%,rgba(255,122,0,.35),transparent 32%),
+        linear-gradient(135deg,#15243a,#263b55);
+      color:white;position:relative;overflow:hidden
+    }
+    .hero:after{
+      content:"";position:absolute;width:600px;height:600px;border:1px solid rgba(255,255,255,.08);
+      border-radius:50%;right:-150px;bottom:-250px
+    }
+    .hero-content{max-width:700px;position:relative;z-index:2;padding:80px 0}
+    .eyebrow{color:var(--accent2);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:13px;margin-bottom:15px}
+    h1{font-size:clamp(42px,6vw,72px);line-height:1.02;margin-bottom:22px}
+    h1 span{color:var(--accent)}
+    .hero p{font-size:19px;color:#d6dce6;max-width:620px;margin-bottom:30px}
+    .buttons{display:flex;gap:13px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:12px;font-weight:800;border:2px solid transparent;transition:.2s}
+    .btn-primary{background:var(--accent);color:white}
+    .btn-primary:hover{background:#e96800;transform:translateY(-2px)}
+    .btn-outline{border-color:#657388;color:white}
+    .btn-outline:hover{border-color:white;background:rgba(255,255,255,.08)}
+    .hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:38px}
+    .badge{padding:9px 13px;border:1px solid rgba(255,255,255,.16);border-radius:999px;color:#dce3ed;background:rgba(255,255,255,.05);font-size:13px}
+
+    section{padding:85px 0}
+    .section-head{text-align:center;max-width:700px;margin:0 auto 45px}
+    .section-head .eyebrow{margin-bottom:8px}
+    h2{font-size:clamp(30px,4vw,44px);line-height:1.15;margin-bottom:12px}
+    .section-head p{color:var(--muted)}
+    .light{background:var(--light)}
+
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .card{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:27px;box-shadow:var(--shadow);transition:.2s}
+    .card:hover{transform:translateY(-5px)}
+    .icon{width:52px;height:52px;display:grid;place-items:center;border-radius:14px;background:#fff0e3;color:var(--accent);font-size:25px;margin-bottom:18px}
+    .card h3{font-size:20px;margin-bottom:8px}
+    .card p{color:var(--muted);font-size:14px}
+
+    .price-wrap{overflow:auto;border-radius:18px;box-shadow:var(--shadow);background:white;border:1px solid var(--border)}
+    table{width:100%;border-collapse:collapse;min-width:650px}
+    th,td{text-align:left;padding:18px 20px;border-bottom:1px solid var(--border)}
+    th{background:var(--dark);color:white;font-size:14px}
+    tr:last-child td{border-bottom:0}
+    td:nth-child(2){font-weight:800;color:var(--accent);white-space:nowrap}
+    .price-note{margin-top:18px;color:var(--muted);font-size:13px}
+
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+    .about-box{background:var(--dark);color:white;border-radius:25px;padding:45px;min-height:330px;display:flex;flex-direction:column;justify-content:center}
+    .about-box .big{font-size:64px;font-weight:900;color:var(--accent);line-height:1}
+    .about-box p{color:#c9d1dc;margin-top:10px}
+    .checklist{list-style:none;margin-top:22px;display:grid;gap:12px}
+    .checklist li:before{content:"✓";color:var(--accent);font-weight:900;margin-right:10px}
+
+    .references{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .ref{
+      min-height:240px;border-radius:20px;overflow:hidden;position:relative;
+      background:linear-gradient(135deg,#1a2b40,#3d5065)
+    }
+    .ref:nth-child(2){background:linear-gradient(135deg,#243746,#647789)}
+    .ref:nth-child(3){background:linear-gradient(135deg,#202a35,#9b6337)}
+    .ref-content{position:absolute;left:0;right:0;bottom:0;padding:24px;color:white;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+    .ref-content h3{margin-bottom:3px}
+
+    .contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:25px}
+    .contact-card,.form-card{background:white;border:1px solid var(--border);border-radius:20px;padding:32px;box-shadow:var(--shadow)}
+    .contact-item{display:flex;gap:14px;margin:20px 0}
+    .contact-item .icon{flex:0 0 45px;width:45px;height:45px;margin:0}
+    .contact-item strong{display:block}
+    .contact-item span{color:var(--muted);font-size:14px}
+    form{display:grid;gap:15px}
+    input,textarea,select{width:100%;padding:14px 15px;border:1px solid #d5dae2;border-radius:11px;font:inherit;outline:none}
+    input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,122,0,.12)}
+    textarea{min-height:140px;resize:vertical}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+
+    footer{background:#070d17;color:#b9c2ce;padding:35px 0}
+    .footer-inner{display:flex;justify-content:space-between;gap:25px;align-items:center}
+    footer strong{color:white}
+    .footer-links{display:flex;gap:18px;font-size:14px}
+    .copyright{font-size:13px}
+
+    @media(max-width:900px){
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .about,.contact{grid-template-columns:1fr}
+      .references{grid-template-columns:1fr 1fr}
+      .nav-links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--dark);padding:12px 4%;flex-direction:column;align-items:stretch}
+      .nav-links.open{display:flex}
+      .nav-links a{display:block}
+      .menu-btn{display:block}
+    }
+    @media(max-width:600px){
+      .hero{min-height:650px}
+      .cards,.references{grid-template-columns:1fr}
+      section{padding:65px 0}
+      .about-box{padding:30px}
+      .form-row{grid-template-columns:1fr}
+      .footer-inner{flex-direction:column;align-items:flex-start}
+      h1{font-size:45px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#domov" class="logo">
+        <div class="logo-mark">S</div>
+        <div>SIMONČIČ INSTALACIJE<small>Igor Simončič s.p.</small></div>
+      </a>
+      <button class="menu-btn" aria-label="Odpri meni" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#domov">Domov</a></li>
+        <li><a href="#storitve">Storitve</a></li>
+        <li><a href="#ponudba">Klimatske naprave</a></li>
+        <li><a href="#cenik">Cenik</a></li>
+        <li><a href="#reference">Reference</a></li>
+        <li><a href="#podjetje">O podjetju</a></li>
+        <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="domov">
+    <div class="container">
+      <div class="hero-content">
+        <div class="eyebrow">Profesionalne instalacije</div>
+        <h1>Udobje in zanesljivost za <span>vaš dom.</span></h1>
+        <p>
+          Simončič instalacije Igor Simončič s.p. – strokovne rešitve na področju
+          klimatizacije, elektroinštalacij, toplotnih črpalk ter servisiranja.
+        </p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="#kontakt">Pošlji povpraševanje</a>
+          <a class="btn btn-outline" href="#cenik">Oglej si cenik</a>
+        </div>
+        <div class="hero-badges">
+          <div class="badge">✓ Kakovostna izvedba</div>
+          <div class="badge">✓ Strokovno svetovanje</div>
+          <div class="badge">✓ Zanesljiv servis</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="storitve">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Kaj ponujamo</div>
+        <h2>Naše storitve</h2>
+        <p>Celovite rešitve za stanovanjske, poslovne in druge objekte.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="icon">❄</div>
+          <h3>Klimatizacija</h3>
+          <p>Montaža, demontaža, servis in vzdrževanje klimatskih naprav.</p>
+        </article>
+        <article class="card">
+          <div class="icon">⚡</div>
+          <h3>Elektroinštalacije</h3>
+          <p>Izvedba in obnova elektroinštalacij ter različna elektro dela.</p>
+        </article>
+        <article class="card">
+          <div class="icon">♨</div>
+          <h3>Toplotne črpalke</h3>
+          <p>Montaža in osnovna servisna dela na sistemih toplotnih črpalk.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🔧</div>
+          <h3>Servis in vzdrževanje</h3>
+          <p>Pregledi, čiščenje, odprava napak in redno vzdrževanje naprav.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="ponudba">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Naša ponudba</div>
+        <h2>Klimatske naprave</h2>
+        <p>Izbirate lahko med različnimi tipi klimatskih naprav. Končno ponudbo pripravimo glede na prostor, moč in vaše potrebe.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="icon">❄</div>
+          <h3>Stenske klimatske naprave</h3>
+          <p>Za hlajenje in ogrevanje stanovanj, hiš, pisarn in drugih prostorov.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🏠</div>
+          <h3>Multi-split sistemi</h3>
+          <p>Ena zunanja enota in več notranjih enot za hlajenje oziroma ogrevanje več prostorov.</p>
+        </article>
+        <article class="card">
+          <div class="icon">⚡</div>
+          <h3>Varčne klimatske naprave</h3>
+          <p>Sodobne inverter naprave z nizko porabo energije in tihim delovanjem.</p>
+        </article>
+        <article class="card">
+          <div class="icon">♨</div>
+          <h3>Klime za ogrevanje</h3>
+          <p>Naprave, ki poleg hlajenja omogočajo tudi ogrevanje prostora v hladnejšem delu leta.</p>
+        </article>
+      </div>
+
+      <div style="margin-top:28px;background:var(--dark);color:white;border-radius:20px;padding:30px">
+        <h3 style="font-size:22px;margin-bottom:8px">Zastopane znamke</h3>
+        <p style="color:#c9d1dc;margin-bottom:15px">Ponudbo lahko prilagodimo glede na želje naročnika. Spodaj lahko vpišeš znamke, ki jih podjetje dejansko prodaja oziroma vgrajuje.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <span class="badge">Daikin</span>
+          <span class="badge">Mitsubishi Electric</span>
+          <span class="badge">Gree</span>
+          <span class="badge">Panasonic</span>
+          <span class="badge">Toshiba</span>
+        </div>
+        <p style="color:#9faaba;font-size:12px;margin-top:16px">* Znamke so primer ponudbe in jih pred objavo uskladi z dejansko prodajno ponudbo podjetja.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="light" id="cenik">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Pregled cen</div>
+        <h2>Cenik storitev</h2>
+        <p>Informativne cene. Končna cena je odvisna od zahtevnosti in obsega dela.</p>
+      </div>
+      <div class="price-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Storitev</th>
+              <th>Cena</th>
+              <th>Opomba</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Montaža klimatske naprave</td><td>od 250 €</td><td>Odvisno od zahtevnosti montaže</td></tr>
+            <tr><td>Demontaža klimatske naprave</td><td>od 100 €</td><td>Po predhodnem dogovoru</td></tr>
+            <tr><td>Servis klimatske naprave</td><td>od 60 €</td><td>Osnovni servis</td></tr>
+            <tr><td>Elektroinštalacijska dela</td><td>35 €/h</td><td>Delo brez materiala</td></tr>
+            <tr><td>Montaža notranje enote</td><td>od 120 €</td><td>Odvisno od izvedbe</td></tr>
+            <tr><td>Montaža zunanje enote</td><td>od 150 €</td><td>Odvisno od dostopa in nosilcev</td></tr>
+            <tr><td>Toplotna črpalka</td><td>Po dogovoru</td><td>Ogled in priprava ponudbe</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="price-note">* Cenik je informativen in ga pred objavo prilagodi dejanskim cenam podjetja.</p>
+    </div>
+  </section>
+
+  <section id="reference">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Naše delo</div>
+        <h2>Reference</h2>
+        <p>Sem lahko dodaš fotografije svojih dejanskih projektov in montaž.</p>
+      </div>
+      <div class="references">
+        <div class="ref"><div class="ref-content"><h3>Montaža klimatske naprave</h3><p>Stanovanjski objekt</p></div></div>
+        <div class="ref"><div class="ref-content"><h3>Elektroinštalacije</h3><p>Novogradnja / obnova</p></div></div>
+        <div class="ref"><div class="ref-content"><h3>Servis in vzdrževanje</h3><p>Redni servis naprav</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light" id="podjetje">
+    <div class="container">
+      <div class="about">
+        <div>
+          <div class="eyebrow">O podjetju</div>
+          <h2>Strokovno, natančno in zanesljivo.</h2>
+          <p>
+            Pri Simončič instalacije se ukvarjamo z različnimi instalacijskimi deli,
+            pri čemer je poudarek na kakovostni izvedbi, urejenosti in zadovoljstvu naročnika.
+          </p>
+          <ul class="checklist">
+            <li>Klimatizacija in montaža klimatskih naprav</li>
+            <li>Elektroinštalacijska dela</li>
+            <li>Toplotne črpalke</li>
+            <li>Servis in vzdrževanje</li>
+          </ul>
+        </div>
+        <div class="about-box">
+          <div class="big">S</div>
+          <h3>SIMONČIČ INSTALACIJE</h3>
+          <p>Igor Simončič s.p.</p>
+          <p>Vaš partner za instalacijske rešitve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Stopimo v stik</div>
+        <h2>Kontakt</h2>
+        <p>Pošljite povpraševanje in skupaj se dogovorimo za izvedbo.</p>
+      </div>
+      <div class="contact">
+        <div class="contact-card">
+          <h3>Kontaktni podatki</h3>
+          <div class="contact-item">
+            <div class="icon">☎</div>
+            <div><strong>Telefon</strong><span>VPIŠI TELEFONSKO ŠTEVILKO</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">✉</div>
+            <div><strong>E-pošta</strong><span>VPIŠI E-POŠTNI NASLOV</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">⌖</div>
+            <div><strong>Območje dela</strong><span>Trbovlje in okolica / Zasavje</span></div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3>Pošljite povpraševanje</h3>
+          <form onsubmit="sendForm(event)">
+            <div class="form-row">
+              <input type="text" placeholder="Ime in priimek" required>
+              <input type="tel" placeholder="Telefon" required>
+            </div>
+            <input type="email" placeholder="E-pošta" required>
+            <select required>
+              <option value="">Izberite storitev</option>
+              <option>Klimatizacija</option>
+              <option>Elektroinštalacije</option>
+              <option>Toplotna črpalka</option>
+              <option>Servis in vzdrževanje</option>
+              <option>Drugo</option>
+            </select>
+            <textarea placeholder="Opišite, kaj potrebujete..." required></textarea>
+            <button class="btn btn-primary" type="submit">Pošlji povpraševanje</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <strong>SIMONČIČ INSTALACIJE Igor Simončič s.p.</strong>
+      <div class="copyright">© 2026 Vse pravice pridržane.</div>
+    </div>
+    <div class="footer-links">
+      <a href="#storitve">Storitve</a>
+      <a href="#ponudba">Klimatske naprave</a>
+      <a href="#cenik">Cenik</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu(){
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  document.querySelectorAll('.nav-links a').forEach(link=>{
+    link.addEventListener('click',()=>{
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  function sendForm(e){
+    e.preventDefault();
+    alert('Hvala za povpraševanje! Kontaktni obrazec je trenutno predstavitveni – za dejansko pošiljanje ga je treba povezati z e-pošto ali strežnikom.');
+  }
+</script>
+</body>
+</html>
